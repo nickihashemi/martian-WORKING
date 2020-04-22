@@ -1,11 +1,9 @@
 public class MartianGenomeAnalyzer extends GenomeAnalyzer {
 
-
     /**
      * check that all letters in buffer are valid (GUAC)
      * @return true if valid
      */
-
     private boolean validCode() {
         for (int i=0;i<buffer.length();i++) {
             char c = buffer.charAt(i);
@@ -15,20 +13,35 @@ public class MartianGenomeAnalyzer extends GenomeAnalyzer {
         return true;
     }
 
+    /**
+     * constructor
+     * @param fileName
+     */
     public MartianGenomeAnalyzer(String fileName) {
         super(fileName);
     }
 
+    /**
+     * loops through the sequence to look for the first index of a match
+     * @return int
+     */
     int detectGenius() {
         return super.findSimpleSequence("GAGA");
     }
 
-
+    /**
+     * loops through the sequence to look for the first index of a match
+     * @return int
+     */
     int detectRepeater(String letter) {
         return super.findSimpleSequence(letter+letter+letter+letter+letter);
 
     }
 
+    /**
+     * loops through the sequence to look for the first index of a match
+     * @return int
+     */
     int detectGastroDisease () {
         String s = "";
 
@@ -68,6 +81,10 @@ public class MartianGenomeAnalyzer extends GenomeAnalyzer {
     }
 
 
+    /**
+     * test code for the methods
+     * @param args
+     */
     public static void main (String args[]) {
         MartianGenomeAnalyzer martianSequence = new MartianGenomeAnalyzer("test.txt");
 

@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 
+/**
+ * detects any matches
+ */
+
 public class MartianGenomeSeriesAnalyzer extends GenomeAnalyzer {
 
     ArrayList<PatternDetector> patternList = new ArrayList<>();
@@ -12,10 +16,18 @@ public class MartianGenomeSeriesAnalyzer extends GenomeAnalyzer {
         super(fileName);
     }
 
+    /**
+     * adding the detector into an array list
+     * @param patternDetector
+     */
     public void addDetector(PatternDetector patternDetector) {
         patternList.add(patternDetector);
     }
 
+    /**
+     * runs through all the detectors that get added into the array list
+     * @param martianGenomeSeriesAnalyzer
+     */
     public void runAll(MartianGenomeSeriesAnalyzer martianGenomeSeriesAnalyzer) {
         for (PatternDetector pD: patternList) {
             int index;
@@ -59,6 +71,10 @@ public class MartianGenomeSeriesAnalyzer extends GenomeAnalyzer {
 
     }
 
+    /**
+     * test code for the methods
+     * @param args
+     */
     public static void main(String args[]){
         MartianGenomeSeriesAnalyzer seriesAnalyzer = new MartianGenomeSeriesAnalyzer("test.txt");
         seriesAnalyzer.addDetector(new GeniusDetector());

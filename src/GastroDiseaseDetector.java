@@ -1,9 +1,17 @@
 import java.util.ArrayList;
 
+/**
+ * detects if there is gastro disease in the sequence
+ */
 public class GastroDiseaseDetector implements PatternDetector {
 
     String gastroPattern = "";
 
+    /**
+     * loops through the sequence to look for the first index of a match
+     * @param analyzer
+     * @return int
+     */
     @Override
     public int detect(GenomeAnalyzer analyzer) {
         String s = ""; //data member = s
@@ -46,11 +54,19 @@ public class GastroDiseaseDetector implements PatternDetector {
 
     }
 
+    /**
+     * labels the match appropriately
+     * @return String
+     */
     @Override
     public String labelString() {
         return "Label: Gastro Disease Detector checks if the DNA has GT..TG.";
     }
 
+    /**
+     * includes the additionalInfo for the match
+     * @return String
+     */
     @Override
     public String additionalInfo() {
         return "Additional Info: If there is a sequence of G followed by T's and ends with G's, the martian has Gastro Disease. If not, they don't have Gastro Disease.\n" + "Match: " + gastroPattern;
